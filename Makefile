@@ -13,7 +13,7 @@ LIB	=	my
 LIBS	=	-L$(DLIB) -l$(LIB)
 SRC     =	$(DSRC)main.c \
 		$(DSRC)get_next_line.c
-CFLAGS	=	-Wall -W -Wextra -I$(INC)
+CFLAGS	=	-Wall -W -Wextra -I$(INC) -ggdb3
 OBJ	=	$(SRC:.c=.o)
 NAME	=	mysh
 

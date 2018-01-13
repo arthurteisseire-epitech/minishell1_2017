@@ -11,7 +11,8 @@
 
 int main(int ac, char **av, char **env)
 {
-	pid_t pid = fork();
+	pid_t pid = getpid();
+	int wstatus;
 	char *cmd = "";
 
 	if (ac != 1) {
@@ -25,12 +26,10 @@ int main(int ac, char **av, char **env)
 			free(cmd);
 		}
 	} else if (pid > 0) {
-		while (my_strcmp(cmd, "exit") != 0) {
+		if (my_strcmp(cmd, "exit") != 0) {
 			cmd = get_next_line(0);
-			if (cmd != NULL) {
-				execve(cmd, av, env);
-				free(cmd);
-			}
+			fork();
+			wait(&wstatus);
 		}
 	} else {
 		my_puterror("A problem ocurred during the creation of shell\n");
