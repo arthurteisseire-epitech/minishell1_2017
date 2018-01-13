@@ -8,7 +8,7 @@
 #ifndef TOOLS_H
 #define TOOLS_H
 
-char *epure_spaces(char *str);
+void epure_spaces(char *str);
 void skip_first_spaces(char **str);
 
 #endif

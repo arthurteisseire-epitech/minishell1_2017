@@ -7,22 +7,29 @@
 
 #include "tools.h"
 
-char *epure_spaces(char *str)
+static void move(char **str, char **ptr)
+{
+	if (**ptr == ' ') {
+		skip_first_spaces(ptr);
+		if (**ptr != '\0') {
+			**str = ' ';
+			(*str)++;
+		}
+	} else {
+		**str = **ptr;
+		(*ptr)++;
+		(*str)++;
+	}
+}
+
+void epure_spaces(char *str)
 {
 	char *ptr = str;
 
-	while (*str != '\0') {
-		if (*ptr == ' ') {
-			skip_first_spaces(&ptr);
-			*str = ' ';
-			str++;
-		}
-		*str = *ptr;
-		ptr++;
-		str++;
-	}
+	skip_first_spaces(&ptr);
+	while (*ptr != '\0')
+		move(&str, &ptr);
 	*str = '\0';
-	return (str);
 }
 
 void skip_first_spaces(char **str)
