@@ -9,6 +9,7 @@ CC	=	gcc
 DSRC	=	$(realpath src)/
 INC	=	$(realpath include)
 DLIB	=	$(realpath lib/my)/
+DTESTS	=	$(realpath tests)/
 LIB	=	my
 LIBS	=	-L$(DLIB) -l$(LIB)
 DTOOLS	=	$(DSRC)tools/
@@ -28,14 +29,16 @@ $(NAME):	$(OBJ)
 
 clean:
 	make clean -C $(DLIB)
+	make clean -C $(DTESTS)
 	rm -f $(OBJ)
 
 fclean: clean
 	make fclean -C $(DLIB)
+	make fclean -C $(DTESTS)
 	rm -f $(NAME)
 
 re: fclean all
 	make clean
 
 test_run:
-	make test_run -C tests
+	make test_run -C $(DTESTS)
