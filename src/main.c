@@ -12,28 +12,24 @@
 int main(int ac, char **av, char **env)
 {
 	pid_t pid = getpid();
-	int wstatus;
 	char *cmd = "";
+	char *args[3] = {"/bin/ls", "-l", NULL};
 
 	if (ac != 1) {
-		my_puterror("The program must take two and only two argument\n");
+		my_puterror(av[0]);
+		my_puterror(": The program must take two and only two argument\n");
 		return (84);
 	}
-	if (pid == 0) {
-		execve(cmd, av, env);
-		if (cmd != NULL) {
-			execve(cmd, av, env);
-			free(cmd);
-		}
-	} else if (pid > 0) {
-		if (my_strcmp(cmd, "exit") != 0) {
+	if (pid > 0) {
+		while (my_strcmp(cmd, "exit") != 0) {
 			cmd = get_next_line(0);
-			fork();
-			wait(&wstatus);
+			pid = fork();
+			if (pid == 0) {
+				if (cmd != NULL) {
+					execve(cmd, args, env);
+				}
+			} 
 		}
-	} else {
-		my_puterror("A problem ocurred during the creation of shell\n");
-		return (84);
 	}
 	return (0);
 }
