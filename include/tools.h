@@ -8,9 +8,10 @@
 #ifndef TOOLS_H
 #define TOOLS_H
 
-int skip_first_spaces(char **str);
-char **str_to_word_array(char *str);
-char *get_next_word(char **str);
-int len_first_word(char *str);
+int skip_first_flags(char **str, char flag);
+char **str_to_word_array(char *str, char flag);
+char *get_next_word(char **str, char flag);
+int len_first_word(char *str, char flag);
+int count_words(char *str, char flag);
 
 #endif

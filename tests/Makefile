@@ -15,7 +15,7 @@ LIB	=	my
 LIBS	=	-L$(DLIB) -l$(LIB)
 DTOOLS	=	$(DSRC)tools/
 
-SRC_UT	=	$(DSRC_UT)test_get_word.c
+SRC_UT	=	$(DSRC_UT)test_word_array.c
 SRC     =	$(DSRC)get_next_line.c \
 		$(DTOOLS)str_to_word_array.c
 
