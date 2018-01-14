@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2017
-** File Name : str_to_word_array.c
+** File Name : split.c
 ** File description:
 ** by Arthur Teisseire
 */

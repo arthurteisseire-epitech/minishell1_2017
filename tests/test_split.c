@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2017
-** File Name : test_word_array.c
+** File Name : test_split.c
 ** File description:
 ** by Arthur Teisseire
 */
@@ -18,7 +18,7 @@ char *my_strdup(char *str)
 	return (res);
 }
 
-Test(str_to_word_array, get_next_word)
+Test(split, get_next_word)
 {
 	char *got1 = my_strdup("lala         toto");
 	char *got2 = my_strdup("     lala         toto      ");
@@ -33,7 +33,7 @@ Test(str_to_word_array, get_next_word)
 	cr_assert_eq(res, NULL);
 }
 
-Test(str_to_word_array, skip_first_flags)
+Test(split, skip_first_flags)
 {
 	char *got = my_strdup("      lala ");
 	char *expected = "lala ";
@@ -42,13 +42,13 @@ Test(str_to_word_array, skip_first_flags)
 	cr_assert_str_eq(got, expected);
 }
 
-Test(str_to_word_array, count_words)
+Test(split, count_words)
 {
 	cr_assert_eq(count_words("un deux trois", ' '), 3);
 	cr_assert_eq(count_words("  un deux trois ", ' '), 3);
 }
 
-Test(str_to_word_array, split)
+Test(split, split)
 {
 	char *got = "   tata    toto   ";
 	char *expected[3] = {"tata", "toto", NULL};
