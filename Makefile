@@ -15,8 +15,7 @@ LIBS	=	-L$(DLIB) -l$(LIB)
 DTOOLS	=	$(DSRC)tools/
 SRC     =	$(DSRC)main.c \
 		$(DSRC)get_next_line.c \
-		$(DTOOLS)str_to_word_array.c \
-		$(DTOOLS)epure_spaces.c
+		$(DTOOLS)str_to_word_array.c
 CFLAGS	=	-Wall -W -Wextra -I$(INC) -ggdb3
 OBJ	=	$(SRC:.c=.o)
 NAME	=	mysh

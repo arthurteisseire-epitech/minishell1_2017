@@ -15,10 +15,9 @@ LIB	=	my
 LIBS	=	-L$(DLIB) -l$(LIB)
 DTOOLS	=	$(DSRC)tools/
 
-SRC_UT	=	$(DSRC_UT)test_epure.c
+SRC_UT	=	$(DSRC_UT)test_get_word.c
 SRC     =	$(DSRC)get_next_line.c \
-		$(DTOOLS)str_to_word_array.c \
-		$(DTOOLS)epure_spaces.c
+		$(DTOOLS)str_to_word_array.c
 
 CFLAGS	=	-Wall -W -Wextra --coverage -I$(INC)
 LDFLAGS	=	-lcriterion -lgcov
