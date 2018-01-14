@@ -47,3 +47,14 @@ Test(str_to_word_array, count_words)
 	cr_assert_eq(count_words("un deux trois", ' '), 3);
 	cr_assert_eq(count_words("  un deux trois ", ' '), 3);
 }
+
+Test(str_to_word_array, split)
+{
+	char *got = "   tata    toto   ";
+	char *expected[3] = {"tata", "toto", NULL};
+	char **res = split(got, ' ');
+	int i = 0;
+	
+	while (res[i] != NULL)
+		cr_assert_str_eq(res[i], expected[i]);
+}
